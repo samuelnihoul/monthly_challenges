@@ -1,4 +1,5 @@
 from django.shortcuts import HttpResponse
+from django.http import HttpResponseNotFound,HttpResponseRedirect
 from django.shortcuts import render
 
 monthly_challenges={
@@ -16,8 +17,10 @@ monthly_challenges={
         "december":"Learn Django for at least 20 minutes every day!"
 }
 
+
 def monthly_challeng_by_number(request,month):
-    return HttpResponse(monthly_challenges[month-1])
+    months=list(monthly_challenges.keys())
+    return HttpResponseRedirect('/challenges/'+months[month-1])
 
 def monthly_challenge(request,month):
     try:
