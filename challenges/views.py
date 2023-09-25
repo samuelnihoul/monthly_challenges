@@ -1,6 +1,9 @@
 from django.shortcuts import HttpResponse
 from django.shortcuts import render
 
+def monthly_challeng_by_number(request,month):
+    return HttpResponse(month)
+
 def monthly_challenge(request,month):
     challenge_text=None
     if month=='january':
@@ -9,4 +12,4 @@ def monthly_challenge(request,month):
         challenge_text='Walk for at least 20 minutes every day!'
     elif month=='march':
         challenge_text='Learn Django for at least 20 minutes every day!'
-    return HttpResponse()
+    return HttpResponse(challenge_text)
