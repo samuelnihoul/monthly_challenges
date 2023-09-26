@@ -21,12 +21,9 @@ monthly_challenges={
 def index(request):
     list_items=''
     months=list(monthly_challenges.keys())
-    for month in months:
-        capitalized_month=month.capitalize()
-        month_path=reverse('month-challenge',args=[month])
-        list_items+=f'<li><a href=\"{month_path}\">{capitalized_month}</a></li>'
-    ul='<ul>'+list_items+'</ul>'
-    return HttpResponse(ul)
+    return render(request,'challenges/index.html',{
+        'months':months
+    })
 
 def monthly_challeng_by_number(request,month):
     months=list(monthly_challenges.keys())
@@ -42,7 +39,7 @@ def monthly_challenge(request,month):
         response_data='challenges/challenge.html'
         return render(request,response_data,{
             'text':challenge_text,
-    'month':month.capitalize()
+            'month':month
         })
     except:
         return HttpResponseNotFound('This month is not found')
