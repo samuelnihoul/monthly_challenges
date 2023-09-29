@@ -1,10 +1,11 @@
-
-
+'''
+defines the url for the app
+'''
 from django.urls import path
 from . import views
 
 urlpatterns=[
-    path('',views.index),
-    path('<int:month>',views.monthly_challeng_by_number),
-    path('<str:month>',views.monthly_challenge,name='month-challenge')
+    path('',views.index,name='index'),
+    path('<int:month>',views.monthly_challenge_by_number,name='monthly-challenge-by-number'),
+    path('<str:month>',views.monthly_challenge,name='monthly-challenge')
 ]
