@@ -5,7 +5,10 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="static/style.css" rel="stylesheet">
+    {% block css_files%}
+    
+    {% endblock %}
+    <link href="{% static "global.css"%}" rel="stylesheet">
     <title>{% block page_title %}My Challenges{%endblock%}</title>
   </head>
   <body>

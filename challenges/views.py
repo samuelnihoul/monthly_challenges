@@ -48,5 +48,5 @@ def monthly_challenge(request,month):
             'text':challenge_text,
             'month':month
         })
-    except Http404:
-        raise Http404
+    except KeyError as exc:
+        raise Http404() from exc
